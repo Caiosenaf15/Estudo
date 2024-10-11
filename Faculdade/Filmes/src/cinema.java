@@ -12,7 +12,8 @@ public class cinema {
         filme2.imdb = 9.8;
         System.out.println("Qual o titulo do filme?");
         Scanner sc = new Scanner(System.in);
-        String titulo3 = sc.nextLine();
+        String titulo3 = sc.next();
+        sc.close();
         filme filme3 = new filme();
         filme3.titulo = titulo3;
         System.out.println(filme1.titulo);
