@@ -5,10 +5,10 @@ public class Media {
         System.out.println("Qual a primeira nota? ");
         Scanner sc = new Scanner(System.in);
         int nota1 = sc.nextInt();
-        aluno1.nota1 = nota1;
+        aluno1.setNota1(nota1);
         System.out.println("Qual a segunda nota? ");
         int nota2 = sc.nextInt();
-        aluno1.nota2 = nota2;
+        aluno1.setNota2(nota2);
         sc.close();
         int media;
         media = (aluno1.nota1 + aluno1.nota2) / 2;
