@@ -1,0 +1,19 @@
+USE basevendas;
+
+SELECT * FROM fornecedores WHERE telefone LIKE("(11)%") OR telefone LIKE("(21)%");
+
+SELECT nome, cidade, uf FROM clientes WHERE uf IN("SP", "RJ", "MG");
+
+SELECT * FROM produtos WHERE principio LIKE("______");
+
+SELECT * FROM produtos WHERE principio LIKE("A%") AND principio NOT LIKE("% % % %");
+
+SELECT * FROM clientes WHERE datacadastro LIKE("%-11-%") AND cidade LIKE("M%");
+
+SELECT nome, (SUBSTRING(datacadastro, 6,2)) AS mes,(SUBSTRING(datacadastro, 1,4)) AS ano FROM clientes WHERE cidade NOT LIKE("%FRIBURGO") AND cidade != "CORDEIRO";
+
+SELECT DISTINCT(CONCAT(cidade," / ",bairro)) FROM clientes WHERE cidade IS NOT NULL AND cidade IS NOT NULL;
+
+SELECT *, (pcusto * 0.05) AS lucro FROM produtos WHERE (pcusto * 0.05) > 30; 
+
+SELECT * FROM produtos WHERE estoque IS NOT NULL AND estoque != "" AND apresentacao IS NOT NULL AND apresentacao != "";
