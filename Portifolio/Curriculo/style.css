@@ -1,0 +1,266 @@
+/* Reset básico */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+  scroll-margin-top: 200px;
+}
+
+/* Fundo fixo cobrindo a tela inteira */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgb(26, 26, 26);
+  z-index: -1;
+}
+
+.header-fixo{
+  display: flex;
+  position: fixed;
+  background-color: rgb(34, 34, 34);
+  height: 50px;
+  width: 210px;
+  font-size: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0px 0px 10px 0px;
+  visibility: visible;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.header-fixo > .texto-transparente{
+  width: 100%;
+}
+
+.header-fixo > ul{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  list-style: none;
+  gap: 10px;
+  font-size: 15px;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.link-fixo > a{
+  color: white;
+  text-decoration: none;
+}
+
+.link-fixo > a:hover{
+  color: rgb(109, 220, 253);
+}
+
+/* Conteúdo principal */
+#header {
+ /* Garante altura total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 50px 10px;
+  color: white;
+}
+
+/* Links do cabeçalho */
+#links-header {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#links-header a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#links-header a:hover {
+  color: rgb(109, 220, 253);
+}
+
+#header > .texto-transparente{
+  font-size: 80px;
+}
+
+/* Texto transparente com fundo fixo */
+.texto-transparente {
+  font-weight: bold;
+  color: transparent;
+  background-image: linear-gradient(140deg, rgb(141, 255, 141) 18%, rgb(109, 220, 253) 40%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+/* Seção Sobre */
+#sobre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 800px;
+  padding: 30px;
+  background-color: rgb(34, 34, 34);
+  color: white;
+  text-align: justify;
+  text-indent: 10px;
+  border-radius: 10px;
+  box-shadow: 5px  5px 15px rgba(0, 0, 0, 0.315);
+}
+
+/* Parágrafos dentro do #sobre */
+#sobre > p {
+  margin: 8px 0;
+}
+
+#cards-conteudo{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 800px;
+  gap: 20px;
+  margin: auto;
+  background-color: rgb(34,34,34);
+  border-radius: 10px;
+  box-shadow: 5px  5px 15px rgba(0, 0, 0, 0.315);
+}
+
+#carreira{
+  width: 220px;
+  height: 200px;
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#carreira > ul > ol{
+  padding-left: 15px;
+}
+
+#portifolio{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 20px;
+  max-width: 1000px;
+}
+
+/* Seção de cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que as cards quebrem */
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+/* Estilo das cards */
+.card {
+  flex: 1 1 calc(33.33% - 20px); /* 3 cards por linha com gap de 20px */
+  max-width: 250px; /* Tamanho máximo */
+  height: auto;
+  background-color: rgb(34, 34, 34);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.card > img {
+  height: 167px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.card > p {
+  margin: 10px 0;
+  color: white;
+}
+
+.card > button {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  background-color: rgb(80, 80, 80);
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.308);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card > button:hover {
+  background-color: rgb(102, 102, 102);
+}
+
+#contato{
+  width: 100%;
+  height: 150px;
+  background-color: rgb(34, 34, 34);
+  text-align: center;
+  margin-top: 20px;
+}
+
+#meus-sites{
+  display: flex;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 50px;
+  margin: auto;
+  font-size: 18px;
+  color: white;
+}
+
+#git > a{
+  font-weight: bolder;
+  color: white;
+  text-decoration: none;
+}
+
+#linkedin > a{
+  font-weight: bolder;
+  color: white;
+  text-decoration: none;
+}
+
+#assinatura{
+  padding: 20px;
+  color: white;
+}
