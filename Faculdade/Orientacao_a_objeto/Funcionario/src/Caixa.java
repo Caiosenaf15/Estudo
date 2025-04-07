@@ -1,0 +1,6 @@
+//public class Caixa extends Funcionario{
+    
+    public Caixa(String nome){
+        super(nome);
+    }
+}

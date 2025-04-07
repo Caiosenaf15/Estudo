@@ -1,0 +1,42 @@
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProdutoDao {
+    private Connection conexao;
+
+    public ProdutoDao(Connection conexao) {
+        this.conexao = conexao;
+    }
+
+    // Método para inserir um produto no banco de dados
+    public void insert(Produto produto) throws DaoException {
+        String sql = "INSERT INTO produto (descricao, preco_de_custo) VALUES (?, ?)";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, produto.getDescricao());
+            stmt.setBigDecimal(2, produto.getPrecoDeCusto());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException("Erro ao inserir produto: " + e.getMessage(), e);
+        }
+    }
+
+    // Método para recuperar todos os produtos do banco de dados
+    public List<Produto> getAll() throws DaoException {
+        List<Produto> produtos = new ArrayList<>();
+        String sql = "SELECT id, descricao, preco_de_custo FROM produto";
+        try (Statement stmt = conexao.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Produto produto = new Produto();
+                produto.setId(rs.getInt("id"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPrecoDeCusto(rs.getBigDecimal("preco_de_custo"));
+                produtos.add(produto);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Erro ao recuperar produtos: " + e.getMessage(), e);
+        }
+        return produtos;
+    }
+}
