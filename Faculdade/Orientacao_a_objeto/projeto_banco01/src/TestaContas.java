@@ -1,18 +1,19 @@
 public class TestaContas {
     public static void main(String[] args) throws Exception {
         Conta conta1 = new Conta();
+        Cliente t1 = new Cliente();
         conta1.setNumero(123);
-        conta1.setTitular("Fulano");
+        //conta1.setTitular(t1);
         conta1.deposita( 3000);
 
         Conta conta2 = new Conta();
         conta2.setNumero(456);
-        conta2.setTitular("Beltrano");
+        //conta2.setTitular(t1);
         conta2.deposita(4000);
 
         Conta conta3 = new Conta();
         conta3.setNumero(789);
-        conta3.setTitular("Ciclano");
+        //conta3.setTitular(t1);
         conta3.deposita(2500);
 
         conta2.deposita(-500);

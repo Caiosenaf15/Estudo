@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca de Endereço por CEP</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        #resultado {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            display: none;
+        }
+        #resultado.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Endereço</h1>
+        <div class="input-group">
+            <input type="text" id="cep" placeholder="Digite o CEP (somente números)">
+        </div>
+        <button onclick="buscarEndereco()">Buscar Endereço</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function buscarEndereco() {
+            const cep = document.getElementById('cep').value.replace(/\D/g, '');
+            const resultadoDiv = document.getElementById('resultado');
+
+            if (cep.length !== 8) {
+                resultadoDiv.innerHTML = 'CEP inválido. Digite 8 números.';
+                resultadoDiv.classList.add('show');
+                return;
+            }
+
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na busca do CEP');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.erro) {
+                        resultadoDiv.innerHTML = 'CEP não encontrado.';
+                        resultadoDiv.classList.add('show');
+                        return;
+                    }
+
+                    resultadoDiv.innerHTML = `
+                        <h3>Endereço Encontrado:</h3>
+                        <p><strong>Logradouro:</strong> ${data.logradouro}</p>
+                        <p><strong>Bairro:</strong> ${data.bairro}</p>
+                        <p><strong>Cidade:</strong> ${data.localidade}</p>
+                        <p><strong>Estado:</strong> ${data.uf}</p>
+                    `;
+                    resultadoDiv.classList.add('show');
+                })
+                .catch(error => {
+                    resultadoDiv.innerHTML = 'Erro ao buscar endereço. Tente novamente.';
+                    resultadoDiv.classList.add('show');
+                    console.error('Erro:', error);
+                });
+        }
+
+        document.getElementById('cep').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').replace(/^(\d{5})(\d)/, '$1-$2');
+        });
+    </script>
+</body>
+</html>

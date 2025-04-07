@@ -3,13 +3,24 @@ public class Conta {
     private int numero;
     private double saldo;
 
-    public void setTitular(String titular){
-        this.titular = titular;
+    private Conta(){
+        this.saldo = 500;
+        this.titular = new Cliente();
     }
-    public String getTitular(){
+
+    //Overload
+    public Conta(int numero){
+        this();//Invocando o construtor default
+        this.setNumero(numero);
+    }
+
+    /*public void setTitular(Cliente titular){
+        this.titular = titular;
+    }*/
+    public Cliente getTitular(){
         return this.titular;
     }
-    public void setNumero(int numero){
+    private void setNumero(int numero){
         this.numero = numero;
     }
     public int getNumero(){

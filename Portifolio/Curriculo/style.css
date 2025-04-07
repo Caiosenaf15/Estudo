@@ -160,7 +160,7 @@
   padding-left: 15px;
 }
 
-#portifolio{
+#portfolio{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -228,10 +228,19 @@
 
 #contato{
   width: 100%;
-  height: 150px;
+  height: 190px;
   background-color: rgb(34, 34, 34);
   text-align: center;
   margin-top: 20px;
+}
+
+#titulo-contato{
+  margin: auto;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  padding-top: 8px;
 }
 
 #meus-sites{
@@ -240,24 +249,75 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 50px;
+  gap: 30px;
   margin: auto;
   font-size: 18px;
   color: white;
+  flex-wrap: nowrap; /* isso garante que não quebre */
 }
 
-#git > a{
-  font-weight: bolder;
-  color: white;
-  text-decoration: none;
+#git, #linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* para ocupar o espaço todo */
 }
 
-#linkedin > a{
-  font-weight: bolder;
+#email {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+#link-email {
+  margin: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#popup-email {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-20%, 0%);
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 5px 0px;
+  font-size: 14px;
+  white-space: nowrap;
+  display: none; /* Escondido por padrão */
+  z-index: 10;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.637);
+  cursor: pointer;
+}
+
+#copiado-msg {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(30%, -400%);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  display: none;
+}
+
+#git a, #linkedin a, #email p {
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
   text-decoration: none;
+  color: white;
+}
+
+#git a:hover,#linkedin a:hover,#email p:hover{
+  color: rgb(109, 220, 253);
 }
 
 #assinatura{

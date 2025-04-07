@@ -14,7 +14,7 @@
     <h1 class="texto-transparente">Caio Sena</h1>
     <ul>
       <li class="link-fixo" id="sobre-fixo"><a href="#sobre">Sobre</a></li>
-      <li class="link-fixo" id="portifolio-fixo"><a href="#portifolio">Portifolio</a></li>
+      <li class="link-fixo" id="portfolio-fixo"><a href="#portfolio">Portfolio</a></li>
       <li class="link-fixo" id="contato-fixo"><a href="#contato">Contato</a></li>
     </ul>
   </div>
@@ -24,7 +24,7 @@
     <div>
       <ul id="links-header">
         <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#portifolio">Portifolio</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
@@ -46,7 +46,7 @@
               <ol>
                 <li>HTML/CSS</li>
                 <li>JavaScript</li>
-                <li>C++</li>
+                <li>C</li>
                 <li>Java</li>
                 <li>MySQL</li>
               </ol>
@@ -62,85 +62,80 @@
               </ol>
             </ul>
           </div>
-          <div id="carreira">
-            <ul>
-              <li>Metodologias :</li>
-              <ol>
-                <li>Solid</li>
-                <li>Dry</li>
-                <li>Yagni</li>
-              </ol>
-            </ul>
-          </div>
     </div>
-    
   </div>
 
   
 
-  <div id="portifolio">
+  <div id="portfolio">
     <div class="cards">
       <div class="card">
         <img src="img/pag-filmes.png" alt="">
         <p>Catalogo de Filmes</p>
-        <button id="botao-portifolio-filmes">Acesse</button>
+        <button id="botao-portfolio-filmes">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-cep.png" alt="">
         <p>Consulta de Endereço</p>
-        <button id="botao-portifolio-cep">Acesse</button>
+        <button id="botao-portfolio-cep">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-cardapio.png" alt="">
         <p>Cardapio</p>
-        <button id="botao-portifolio-cardapio">Acesse</button>
+        <button id="botao-portfolio-cardapio">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-livros.png" alt="">
         <p>Gerenciador de Livros</p>
-        <button id="botao-portifolio-livros">Acesse</button>
+        <button id="botao-portfolio-livros">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-login.png" alt="">
         <p>Projeto Login</p>
-        <button id="botao-portifolio-login">Acesse</button>
+        <button id="botao-portfolio-login">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-android.png" alt="">
         <p>Projeto Android</p>
-        <button id="botao-portifolio-android">Acesse</button>
+        <button id="botao-portfolio-android">Acesse</button>
       </div>
     </div>
     <div class="cards">
       <div class="card">
         <img src="img/pag-cordel.png" alt="">
         <p>Projeto Cordel</p>
-        <button id="botao-portifolio-cordel">Acesse</button>
+        <button id="botao-portfolio-cordel">Acesse</button>
       </div>
     </div>
   </div>
 
   <div id="contato">
+    <div id="titulo-contato">Contato</div>
     <div id="meus-sites">
-      <div id="git">
+      <div id="git"  onmouseover="colorirLink('#git')">
         <i class="fa-brands fa-github fa-xl"></i>
-        <a href="https://github.com/Caiosenaf15" target="_blank">Github</a>
+        <a href="https://github.com/Caiosenaf15" class="linkColoridoGit" target="_blank">Github</a>
       </div>
       <div id="linkedin">
         <i class="fa-brands fa-linkedin fa-xl"></i>
         <a href="https://www.linkedin.com/in/caio-sena-freitas/" target="_blank">Linkedin</a>
       </div>
-      
+      <div id="email">
+        <i class="fa-solid fa-envelope fa-xl"></i>
+        <p id="link-email" onclick="mostrarEmail()">E-mail</p>
+        <div id="popup-email" onclick="copiarEmail()">caiofreitas15@yahoo.com.br</div>
+        <span id="copiado-msg">Copiado!</span>
+      </div>
     </div>
     <div id="assinatura">
       <p>&copy; 2025 Caio Sena. All rights reserved.</p>
