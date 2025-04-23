@@ -139,21 +139,27 @@
   max-width: 800px;
   gap: 20px;
   margin: auto;
-  background-color: rgb(34,34,34);
-  border-radius: 10px;
-  box-shadow: 5px  5px 15px rgba(0, 0, 0, 0.315);
+}
+
+#titulo-cards {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+  font-size: large;
+  font-weight: bold;
 }
 
 #carreira{
-  width: 220px;
+  width: 250px;
   height: 200px;
   display: flex;
   margin: 10px;
   flex-direction: column;
   color: white;
   align-items: center;
-  justify-content: center;
   margin: auto;
+  background-color: rgb(34,34,34);
+  border-radius: 10px;
+  box-shadow: 5px  5px 15px rgba(0, 0, 0, 0.315);
 }
 
 #carreira > ul > ol{
